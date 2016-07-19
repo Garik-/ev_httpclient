@@ -36,7 +36,10 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 # Object Files
 OBJECTFILES= \
 	${OBJECTDIR}/error.o \
-	${OBJECTDIR}/main.o
+	${OBJECTDIR}/http_request.o \
+	${OBJECTDIR}/main.o \
+	${OBJECTDIR}/picohttpparser.o \
+	${OBJECTDIR}/unit.o
 
 
 # C Compiler Flags
@@ -68,10 +71,25 @@ ${OBJECTDIR}/error.o: error.c
 	${RM} "$@.d"
 	$(COMPILE.c) -O2 -std=c11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/error.o error.c
 
+${OBJECTDIR}/http_request.o: http_request.c 
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.c) -O2 -std=c11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/http_request.o http_request.c
+
 ${OBJECTDIR}/main.o: main.c 
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.c) -O2 -std=c11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/main.o main.c
+
+${OBJECTDIR}/picohttpparser.o: picohttpparser.c 
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.c) -O2 -std=c11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/picohttpparser.o picohttpparser.c
+
+${OBJECTDIR}/unit.o: unit.c 
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.c) -O2 -std=c11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/unit.o unit.c
 
 # Subprojects
 .build-subprojects:
