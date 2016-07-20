@@ -30,7 +30,9 @@
                    projectFiles="false"
                    kind="IMPORTANT_FILES_FOLDER">
       <itemPath>.gitignore</itemPath>
+      <itemPath>.travis.yml</itemPath>
       <itemPath>Makefile</itemPath>
+      <itemPath>README.md</itemPath>
     </logicalFolder>
   </logicalFolder>
   <projectmakefile>Makefile</projectmakefile>

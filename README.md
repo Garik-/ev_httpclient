@@ -1,4 +1,7 @@
 # EV_HTTPCLIENT
+
+[![Build Status](https://travis-ci.org/Garik-/ev_httpclient.svg?branch=master)](https://travis-ci.org/Garik-/ev_httpclient)
+
 Асинхронный HTTP клиент (crawler) с использованием библиотеки [libev] и [PicoHTTPParser]. 
 
 ```bash
