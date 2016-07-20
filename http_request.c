@@ -96,6 +96,17 @@ parse_response(domain_t *domain) {
     return pret;
 }
 
+static bool 
+parse_body(const char *buf, size_t len) {
+    bool status = false;
+    
+    if (NULL != memmem(buf, len, "diafan", 6) || NULL != memmem(buf, len, "DIAFAN", 6)) {
+        status = true;
+    }
+    
+    return status;
+}
+
 static void
 recv_handler(struct ev_loop *loop, struct ev_io *watcher, int events) {
     //debug("recv_handler");
@@ -150,7 +161,7 @@ recv_handler(struct ev_loop *loop, struct ev_io *watcher, int events) {
 
                 case 200:
                 {
-                    if (NULL != memmem(&domain->data.buffer[pret], domain->data.len - pret, "diafan", 6) || NULL != memmem(&domain->data.buffer[pret], domain->data.len - pret, "DIAFAN", 6)) {
+                    if (true == parse_body(&domain->data.buffer[pret], domain->data.len - pret)) {
                         success_checked(domain);
                     } else {
 
