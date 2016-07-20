@@ -51,8 +51,8 @@ success_checked(const domain_t *domain) {
 
 static void
 error_parse(const domain_t *domain) {
-    char buffer[MAXLINE];
-    size_t len;
+    //char buffer[MAXLINE];
+    //size_t len;
 
     debug("error_parse %s", domain->domain);
 
@@ -67,9 +67,8 @@ parse_response(domain_t *domain) {
 
 
 
-    int pret = -1, minor_version, status, i;
+    int pret = -1, minor_version, status;
     size_t msg_len, buflen = domain->data.len, prevbuflen = 0, num_headers;
-    ssize_t rret;
     const char *msg;
 
     num_headers = sizeof (domain->http.headers) / sizeof (domain->http.headers[0]);
@@ -111,7 +110,7 @@ static void
 recv_handler(struct ev_loop *loop, struct ev_io *watcher, int events) {
     //debug("recv_handler");
 
-    int i;
+    size_t i;
 
     domain_t *domain = (domain_t *) watcher;
     ev_io_stop(loop, &domain->io);
@@ -290,7 +289,7 @@ is_valid_location(const domain_t *domain, const char *location, size_t len) {
 
             if (true == valid) {
                 valid = false;
-                int i = 0;
+                size_t i = 0;
                 for (i = 0; i < sizeof (search_path) / sizeof (search_path[0]); i++) {
                     s = snprintf(buffer, sizeof (buffer),
                             "%s%s", domain->domain, search_path[i]);

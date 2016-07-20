@@ -63,7 +63,7 @@ extern "C" {
         struct {
             int in;
             int out;
-            size_t len;
+            off_t len;
         } file;
 
         struct {
@@ -123,12 +123,12 @@ extern "C" {
     err_sys(const char *fmt, ...);
 
     long
-    mtime();
+    mtime(void);
 
-    ssize_t /* Read "n" bytes from a descriptor. */
+    size_t /* Read "n" bytes from a descriptor. */
     readn(int fd, void *vptr, size_t n);
 
-    ssize_t /* Write "n" bytes to a descriptor. */
+    size_t /* Write "n" bytes to a descriptor. */
     writen(int fd, const void *vptr, size_t n);
 
 

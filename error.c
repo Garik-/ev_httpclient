@@ -9,7 +9,7 @@
 
 
 static void
-err_doit(int errnoflag, int level, const char *fmt, va_list ap) {
+err_doit(int errnoflag, const char *fmt, va_list ap) {
     int errno_save, n;
     char buf[MAXLINE];
 
@@ -40,7 +40,7 @@ err_ret(const char *fmt, ...) {
     va_list ap;
 
     va_start(ap, fmt);
-    err_doit(1, LOG_INFO, fmt, ap);
+    err_doit(1, fmt, ap);
     va_end(ap);
     return;
 }
@@ -50,7 +50,7 @@ err_sys(const char *fmt, ...) {
     va_list ap;
 
     va_start(ap, fmt);
-    err_doit(1, errno, fmt, ap);
+    err_doit(1, fmt, ap);
     va_end(ap);
     exit(1);
 }
@@ -60,7 +60,7 @@ err_quit(const char *fmt, ...) {
     va_list ap;
 
     va_start(ap, fmt);
-    err_doit(0, LOG_ERR, fmt, ap);
+    err_doit(0, fmt, ap);
     va_end(ap);
     exit(EXIT_FAILURE);
 }

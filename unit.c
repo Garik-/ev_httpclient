@@ -17,7 +17,7 @@ mtime() {
 }
 
 
-ssize_t /* Read "n" bytes from a descriptor. */
+size_t /* Read "n" bytes from a descriptor. */
 readn(int fd, void *vptr, size_t n) {
     size_t nleft;
     ssize_t nread;
@@ -40,7 +40,7 @@ readn(int fd, void *vptr, size_t n) {
     return (n - nleft); /* return >= 0 */
 }
 
-ssize_t /* Write "n" bytes to a descriptor. */
+size_t /* Write "n" bytes to a descriptor. */
 writen(int fd, const void *vptr, size_t n) {
     size_t nleft;
     ssize_t nwritten;

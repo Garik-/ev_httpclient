@@ -102,7 +102,7 @@ main_loop(options_t *options) {
     while (offset < options->file.len) {
 
         file_record rec;
-        ssize_t len = readn(options->file.in, &rec, sizeof (rec));
+        size_t len = readn(options->file.in, &rec, sizeof (rec));
 
         if (sizeof (rec) == len) {
             offset += len;
@@ -214,4 +214,3 @@ main(int argc, char** argv) {
     print_stat(&options, (mtime() - time_start));
     return status;
 }
-

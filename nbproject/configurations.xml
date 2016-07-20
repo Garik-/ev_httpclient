@@ -43,7 +43,7 @@
       </toolsSet>
       <compileType>
         <cTool>
-          <standard>10</standard>
+          <commandLine>-Wall -Wextra -Wmissing-prototypes</commandLine>
         </cTool>
         <linkerTool>
           <linkerAddLib>

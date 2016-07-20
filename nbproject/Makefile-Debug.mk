@@ -43,7 +43,7 @@ OBJECTFILES= \
 
 
 # C Compiler Flags
-CFLAGS=
+CFLAGS=-Wall -Wextra -Wmissing-prototypes
 
 # CC Compiler Flags
 CCFLAGS=
@@ -69,27 +69,27 @@ ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/ev_httpclient: ${OBJECTFILES}
 ${OBJECTDIR}/error.o: error.c 
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
-	$(COMPILE.c) -g -std=c11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/error.o error.c
+	$(COMPILE.c) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/error.o error.c
 
 ${OBJECTDIR}/http_request.o: http_request.c 
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
-	$(COMPILE.c) -g -std=c11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/http_request.o http_request.c
+	$(COMPILE.c) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/http_request.o http_request.c
 
 ${OBJECTDIR}/main.o: main.c 
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
-	$(COMPILE.c) -g -std=c11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/main.o main.c
+	$(COMPILE.c) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/main.o main.c
 
 ${OBJECTDIR}/picohttpparser.o: picohttpparser.c 
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
-	$(COMPILE.c) -g -std=c11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/picohttpparser.o picohttpparser.c
+	$(COMPILE.c) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/picohttpparser.o picohttpparser.c
 
 ${OBJECTDIR}/unit.o: unit.c 
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
-	$(COMPILE.c) -g -std=c11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/unit.o unit.c
+	$(COMPILE.c) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/unit.o unit.c
 
 # Subprojects
 .build-subprojects:
